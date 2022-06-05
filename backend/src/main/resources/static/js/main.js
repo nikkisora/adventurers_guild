@@ -1,5 +1,5 @@
 
-import { createApp } from 'vue'
-import MyComponent from './component.js'
+import guildApp from './jobs.js'
+import {createApp, h} from 'vue'
 
-createApp(MyComponent).mount('#app')
+createApp(guildApp).mount('#app')
