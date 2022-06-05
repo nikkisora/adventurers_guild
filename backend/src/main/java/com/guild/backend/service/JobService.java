@@ -41,7 +41,7 @@ public class JobService {
         if (job.getAdventurer_id() != null) exJob.setAdventurer_id(job.getAdventurer_id());
         if (job.getDescription() != null) exJob.setDescription(job.getDescription());
         if (job.getImage() != null) exJob.setImage(job.getImage());
-        if (job.getImage() != null) exJob.setLocation(job.getLocation());
+        if (job.getLocation() != null) exJob.setLocation(job.getLocation());
         if (job.getRank() != null) exJob.setRank(job.getRank());
         if (job.getReward() > 0) exJob.setReward(job.getReward());
         if (job.getStatus() != null) exJob.setStatus(job.getStatus());
