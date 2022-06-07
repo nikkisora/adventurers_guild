@@ -69,4 +69,13 @@ public class User {
     @Column(name = "email")
     @Email(message = "Email should be valid")
     private String email;
+
+    @Column(name = "role")
+    @Email(message = "Role should be valid")
+    private String role;
+
+    public String getPasswordConfirm() {
+        return password;
+    }
+
 }

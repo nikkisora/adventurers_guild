@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.guild.backend.entity.User;
 import com.guild.backend.repo.UserRepo;
@@ -13,12 +14,15 @@ import com.guild.backend.repo.UserRepo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+
 @RequiredArgsConstructor
 @Service
 @Transactional
 @Slf4j
 public class UserService {
     private final UserRepo userRepo;
+
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     public User create(User user){
         log.info("Creating new user: {}", user.getSurname());
@@ -57,4 +61,5 @@ public class UserService {
         userRepo.deleteById(id);
         return Boolean.TRUE;
     }
+
 }

@@ -10,7 +10,8 @@ CREATE TABLE IF NOT EXISTS Users (
    Sex VARCHAR(50) NOT NULL,
    Adventurer BOOLEAN NOT NULL,
    Phone_number VARCHAR(50) ,
-   Email VARCHAR(50)
+   Email VARCHAR(50),
+   Role VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS Orders (
