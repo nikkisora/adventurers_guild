@@ -38,7 +38,7 @@ public class UserService {
     public User update(User user){
         log.info("Updating user id: {}", user.getId());
         User exUser = userRepo.findById(user.getId()).get();
-        if (user.getAge() >= 15) exUser.setAge(user.getAge());
+        if (user.getBirthDate() != null) exUser.setBirthDate(user.getBirthDate());
         if (user.getSurname() != null) exUser.setSurname(user.getSurname());
         if (user.getFirstname() != null) exUser.setFirstname(user.getFirstname());
         if (user.getPatronymic() != null) exUser.setPatronymic(user.getPatronymic());

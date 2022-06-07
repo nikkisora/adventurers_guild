@@ -1,5 +1,7 @@
 package com.guild.backend.entity;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,9 +9,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -49,9 +51,9 @@ public class User {
     @Column(name = "rank")
     private String rank;
 
-    @Column(name = "age")
-    @Min(value = 15, message = "Age cannot be below 15")
-    private int age;
+    @Column(name = "birth_date")
+    @Past(message = "Birth date cannot be in the future")
+    private LocalDate birthDate;
 
     @Column(name = "sex")
     @NotEmpty(message = "Sex cannot be empty or null")
