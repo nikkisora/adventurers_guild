@@ -59,6 +59,12 @@ public class Job {
     @Column(name = "date_added")
     private LocalDateTime date_added;
 
+    @Column(name = "date_accepted")
+    private LocalDateTime date_accepted;
+
+    @Column(name = "date_closed")
+    private LocalDateTime date_closed;
+
     @Column(name = "adventurer_id")
     private Long adventurer_id;
 

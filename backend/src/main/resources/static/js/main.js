@@ -1,5 +1,5 @@
 
 import guildApp from './jobs.js'
-import {createApp, h} from 'vue'
+const {createApp} = Vue
 
 createApp(guildApp).mount('#app')

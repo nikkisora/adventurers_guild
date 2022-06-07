@@ -1,29 +1,40 @@
-
-
 import html from './utils/html.js'
+import JobCard from './components/jobCard.js'
+import NewJobModal from './components/newJobModal.js'
 
 export default {
   name: 'App',
   data: () => ({
-    jobs: "null"
+    jobs: []
   }),
   created() {
     this.fetchData()
   },
   methods:{
     async fetchData(){
-      const jobs_json = await(await fetch('/jobs')).json()
-      this.jobs = JSON.stringify(jobs_json.data, null, '\t')
+      this.jobs = (await(await fetch('/jobs')).json()).data.jobs
     },
-    formatDate(v) {
-      return v.replace(/T|Z/g, ' ')
+    press(){
+      console.log('pressed')
     }
   },
   render(){
     return html`
-      <div>
-        jobs are <pre>${ this.jobs }</pre>
+    <div class="container">
+      <div class="row">
+        <h3>Guild</h3>
       </div>
+      <div class="row mt-3">
+        <${NewJobModal} />
+      </div>
+      <div class="row mt-3">
+        ${this.jobs.map((job, index) => html`
+          <${JobCard} job="${job}"/>
+        `)}
+      </div>
+    </div>
     `;
   }
 }
+
+// <pre>${ this.jobs }</pre>
