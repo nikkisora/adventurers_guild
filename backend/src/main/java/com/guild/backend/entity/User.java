@@ -1,18 +1,15 @@
 package com.guild.backend.entity;
 
-import java.time.LocalDateTime;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.Table;
-import javax.validation.constraints.DecimalMin;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
-
-import org.hibernate.annotations.Type;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -39,7 +36,6 @@ public class User {
     private String firstname;
 
     @Column(name = "patronymic")
-    @NotEmpty(message = "Patronymic cannot be empty or null")
     private String patronymic;
 
     @Column(name = "login")
@@ -54,7 +50,7 @@ public class User {
     private String rank;
 
     @Column(name = "age")
-    @NotEmpty(message = "Age cannot be empty or null")
+    @Min(value = 15, message = "Age cannot be below 15")
     private int age;
 
     @Column(name = "sex")
@@ -62,12 +58,13 @@ public class User {
     private String sex;
 
     @Column(name = "adventurer")
-    @NotEmpty(message = "Adventurer cannot be empty or null")
+    @NotNull(message = "Adventurer cannot be empty or null")
     private boolean adventurer;
 
     @Column(name = "phone_number")
     private String phone_number;
 
     @Column(name = "email")
+    @Email(message = "Email should be valid")
     private String email;
 }

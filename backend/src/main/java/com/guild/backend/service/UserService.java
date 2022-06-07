@@ -38,13 +38,17 @@ public class UserService {
     public User update(User user){
         log.info("Updating user id: {}", user.getId());
         User exUser = userRepo.findById(user.getId()).get();
-        if (user.getAge() > 0) exUser.setAge(user.getAge());
+        if (user.getAge() >= 15) exUser.setAge(user.getAge());
         if (user.getSurname() != null) exUser.setSurname(user.getSurname());
         if (user.getFirstname() != null) exUser.setFirstname(user.getFirstname());
+        if (user.getPatronymic() != null) exUser.setPatronymic(user.getPatronymic());
         if (user.getLogin() != null) exUser.setLogin(user.getLogin());
         if (user.getPassword() != null) exUser.setPassword(user.getPassword());
         if (user.getSex() != null) exUser.setSex(user.getSex());
+        if (user.getRank() != null) exUser.setRank(user.getRank());
         if (user.isAdventurer()) exUser.setAdventurer(user.isAdventurer());
+        if (user.getPhone_number() != null) exUser.setPhone_number(user.getPhone_number());
+        if (user.getEmail() != null) exUser.setEmail(user.getEmail());
         return userRepo.save(exUser);
     }
 
