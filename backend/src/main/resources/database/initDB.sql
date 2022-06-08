@@ -11,7 +11,7 @@ CREATE TABLE IF NOT EXISTS Users (
    Adventurer BOOLEAN NOT NULL,
    Phone_number VARCHAR(50) ,
    Email VARCHAR(50),
-   Role VARCHAR(50) NOT NULL
+   Role VARCHAR(50)
 );
 
 CREATE TABLE IF NOT EXISTS Orders (

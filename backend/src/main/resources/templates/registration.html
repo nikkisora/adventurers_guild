@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <title>Create an account</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="/css/common.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+  <form method="POST" class="form-signin col-md-6 offset-3" th:object="${userForm}" th:action="@{/registration}">
+    <h2 class="form-signin-heading">Create your account</h2>
+    <div class="form-group">
+      <input type="text" th:field="*{login}" required class="form-control" placeholder="Username"
+             autofocus="true">
+      <span class="has-error" th:if="${#fields.hasErrors('login')}"></span>
+    </div>
+    <div class="form-group">
+      <input type="text" th:field="*{surname}" required class="form-control" placeholder="Фамилия"
+             autofocus="true">
+      <span class="has-error" th:if="${#fields.hasErrors('surname')}" ></span>
+    </div>
+    <div class="form-group">
+      <input type="text" th:field="*{firstname}" required class="form-control" placeholder="Имя"
+             autofocus="true">
+      <span class="has-error" th:if="${#fields.hasErrors('firstname')}" ></span>
+    </div>
+    <div class="form-group">
+      <input type="text" th:field="*{patronymic}" required class="form-control" placeholder="Отчество"
+             autofocus="true">
+      <span class="has-error" th:if="${#fields.hasErrors('patronymic')}" ></span>
+    </div>
+
+    <div class="form-group">
+      Пол
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio"  th:field="*{sex}"  name="inlineRadioOptions" id="inlineRadio1" value="М">
+        <label class="form-check-label" for="inlineRadio1" checked>М</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" th:field="*{sex}"  name="inlineRadioOptions" id="inlineRadio2" value="Ж">
+        <label class="form-check-label" for="inlineRadio2">Ж</label>
+      </div>
+      <span class="has-error" th:if="${#fields.hasErrors('sex')}" ></span>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" th:field="*{adventurer}" name="exampleRadios" id="exampleRadios1" value="true" checked>
+      <span class="has-error" th:if="${#fields.hasErrors('adventurer')}" ></span>
+      <label class="form-check-label" for="exampleRadios1">
+        Авантюрист
+      </label>
+    </div>
+    </br>
+    <div class="form-group">
+      <input type="text" th:field="*{rank}" class="form-control" placeholder="Ранг"
+             autofocus="true">
+      <span class="has-error" th:if="${#fields.hasErrors('rank')}" ></span>
+    </div>
+    <div class="form-group">
+      <input type="text" th:field="*{phone_number}" class="form-control" placeholder="Номер телефона"
+             autofocus="true">
+      <span class="has-error" th:if="${#fields.hasErrors('phone_number')}" ></span>
+    </div>
+    <div class="form-group">
+      <input type="text" th:field="*{Email}" class="form-control" placeholder="email"
+             autofocus="true">
+      <span class="has-error" th:if="${#fields.hasErrors('Email')}" ></span>
+    </div>
+    <div class="form-group">
+      <input type="date" th:field="*{birthDate}" class="form-control" id="date" name="date" placeholder="Дата рождения" required>
+      <span class="has-error" th:if="${#fields.hasErrors('birthDate')}" ></span>
+    </div>
+    <div class="form-group">
+      <input type="password" th:field="*{password}" class="form-control" required placeholder="Password">
+      <span class="has-error" th:if="${#fields.hasErrors('password')}" ></span>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+  </form>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
