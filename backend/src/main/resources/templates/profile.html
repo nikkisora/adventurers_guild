@@ -12,7 +12,7 @@
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
         </form>
 
-        <h2>Welcome <span sec:authentication="name"></span> | <a onclick="document.forms['logoutForm'].submit()">Logout</a></h2>
+        <h2>Welcome <span  th:text="${user.firstname}" ></span> |         <button class="btn btn-primary btn-block" onclick="document.forms['logoutForm'].submit()">Logout</button></h2>
     </div>
 </div>
 <div>

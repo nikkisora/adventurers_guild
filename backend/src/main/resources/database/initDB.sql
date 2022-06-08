@@ -25,5 +25,7 @@ CREATE TABLE IF NOT EXISTS Orders (
    Status VARCHAR(50) NOT NULL,
    Date_added datetime NOT NULL,
    Adventurer_id int REFERENCES users(id),
-   Customer_id int NOT NULL REFERENCES users(id)
+   Customer_id int NOT NULL REFERENCES users(id),
+   date_closed datetime,
+   date_accepted datetime
 );
