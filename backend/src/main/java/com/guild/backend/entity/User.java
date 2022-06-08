@@ -16,6 +16,7 @@ import javax.validation.constraints.Past;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Data
@@ -51,6 +52,7 @@ public class User {
     @Column(name = "rank")
     private String rank;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     @Column(name = "birth_date")
     @Past(message = "Birth date cannot be in the future")
     private LocalDate birthDate;
@@ -77,5 +79,4 @@ public class User {
     public String getPasswordConfirm() {
         return password;
     }
-
 }

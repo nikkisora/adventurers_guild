@@ -2,13 +2,7 @@ package com.guild.backend.entity;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Lob;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.NotEmpty;
 
@@ -23,6 +17,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "orders")
+@NamedQuery(name = "Job.findByAdventurerAndDate",
+        query = "SELECT id From Job Where EXTRACT(YEAR FROM date_closed) = 2022 and adventurer_id = ?1 and EXTRACT(MONTH FROM date_closed) = ?2")
 public class Job {
     @Id
     @Column(name = "id")
@@ -64,4 +60,7 @@ public class Job {
 
     @Column(name = "customer_id")
     private Long customer_id;
+
+    @Column(name = "date_accepted")
+    private LocalDateTime date_accepted;
 }

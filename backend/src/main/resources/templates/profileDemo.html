@@ -37,13 +37,13 @@
         yAxis: {
             min: 0,
             title: {
-                text: 'Количество выполненных'
+                text: 'Количество выполненных заказов'
             }
         },
         tooltip: {
             headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
             pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                '<td style="padding:0"><b>{point.y} заказов</b></td></tr>',
             footerFormat: '</table>',
             shared: true,
             useHTML: true
@@ -66,7 +66,7 @@
 <form id="logoutForm" method="POST" th:action="@{/logout}">
     <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
 </form>
-<br><button class="btn btn-primary btn-lg float-right " onclick="document.forms['logoutForm'].submit()">Logout</button><br><br>
+<br><br><br>
 
 <style>
 body{background:url(https://bootstraptema.ru/images/bg/bg-1.png)}
@@ -106,7 +106,7 @@ body{background:url(https://bootstraptema.ru/images/bg/bg-1.png)}
 }
 </style>
 
-<div class="container">
+<div class="container"><button class="btn btn-primary btn-lg float-right " onclick="document.forms['logoutForm'].submit()">Logout</button></br></br></br>
     <div id="main">
         <div class="row" id="real-estates-detail">
             <div class="col-lg-4 col-md-4 col-xs-12">
