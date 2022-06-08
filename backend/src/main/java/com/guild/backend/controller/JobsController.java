@@ -1,8 +1,11 @@
 package com.guild.backend.controller;
 
+import java.io.Console;
 import java.time.LocalDateTime;
+import java.util.Base64;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.guild.backend.entity.Job;
@@ -56,11 +61,14 @@ public class JobsController {
     }
 
     @PostMapping
+    @ResponseBody
     public ResponseEntity<Response> createJob(@RequestBody @Valid Job job){
         job.setCustomer_id(Long.valueOf(2));
         job.setStatus("in review");
         job.setDate_added(LocalDateTime.now());
+        // job.setImage_bytes(Base64.getMimeDecoder().decode(image));
 
+        // return null;
         return ResponseEntity.ok(
             Response.builder()
                     .timeStamp(LocalDateTime.now())

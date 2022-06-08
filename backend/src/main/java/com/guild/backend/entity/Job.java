@@ -1,6 +1,7 @@
 package com.guild.backend.entity;
 
 import java.time.LocalDateTime;
+import java.util.Base64;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -70,4 +71,16 @@ public class Job {
 
     @Column(name = "customer_id")
     private Long customer_id;
+
+    public void setImage(String data){
+        System.out.println(data);
+        this.image = Base64.getMimeDecoder().decode(data);
+    }
+
+    public String getImage(){
+        if(this.image != null)
+            return Base64.getMimeEncoder().encodeToString(this.image);
+        else
+            return null;
+    }
 }
